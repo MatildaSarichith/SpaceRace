@@ -14,24 +14,24 @@ namespace SpaceRace
     {
         Rectangle player1 = new Rectangle(200, 150, 20, 20);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
-        int player1Speed = 10;
+        int playerSpeed = 10;
 
         Rectangle player2 = new Rectangle(200, 150, 20, 20);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
-        int player2Speed = 10;
 
-        List<Rectangle> obstaclesLeft = new List<Rectangle>();
-        List<Rectangle> obstaclesRight = new List<Rectangle>();
+        List<Rectangle> asteroidsLeft = new List<Rectangle>();
+        List<Rectangle> asteroidsRight = new List<Rectangle>();
 
         List<Rectangle> astroids = new List<Rectangle>();
-        List<int> ballSpeeds = new List<int>();
-        List<string> ballColours = new List<string>();
-        int ballSize = 10;
+        List<int> astroidSpeed = new List<int>();
+        int astroidSize = 10;
 
-        bool leftDown = false;
-        bool rightDown = false;
+        bool wDown = false;
+        bool sDown = false;
         bool upDown = false;
         bool downDown = false;
+
+        string gameState = "Waiting";
 
         public Form1()
         {
@@ -42,11 +42,11 @@ namespace SpaceRace
         {
             switch (e.KeyCode)
             {
-                case Keys.Left:
-                    leftDown = false;
+                case Keys.W:
+                    wDown = false;
                     break;
-                case Keys.Right:
-                    rightDown = false;
+                case Keys.S:
+                    sDown = false;
                     break;
                 case Keys.Up:
                     upDown = false;
@@ -61,52 +61,70 @@ namespace SpaceRace
         {
             switch (e.KeyCode)
             {
-                case Keys.Left:
-                    leftDown = true;
-                    break;
-                case Keys.Right:
-                    rightDown = true;
-                    break;
                 case Keys.Up:
                     upDown = true;
                     break;
                 case Keys.Down:
                     downDown = true;
                     break;
+                case Keys.W:
+                    wDown = true;
+                    break;
+                case Keys.S:
+                    sDown = true;
+                    break;
             }
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(pinkBrush, player1);
-            e.Graphics.FillRectangle(blueBrush, player2);
+           if (gameState == "Running")
+            {
+                // draw players
+                e.Graphics.FillRectangle(pinkBrush, player1);
+                e.Graphics.FillRectangle(blueBrush, player2);
+
+                for (int i = 0; i < astroids.Count; i++)
+                {
+                    // draw asteroids
+                    e.Graphics.FillRectangle(blueBrush,astroids[i]);
+                }
+            }
+           
         }
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
             // move player 1
-            if (upDown == true && player1.Y > 0)
+            if (wDown == true && player1.Y > 0)
             {
-                player1.Y -= player1Speed;
+                player1.Y -= playerSpeed;
             }
 
-            if (downDown == true && player1.Y < this.Height - player1.Height)
+            if (sDown == true && player1.Y < this.Height - player1.Height)
             {
-                player1.Y += player1Speed;
+                player1.Y += playerSpeed;
             }
 
             // move player 2
             if (upDown == true && player2.Y > 0)
             {
-                player2.Y -= player2Speed;
+                player2.Y -= playerSpeed;
             }
 
             if (downDown == true && player2.Y < this.Height - player2.Height)
             {
-                player2.Y += player2Speed;
+                player2.Y += playerSpeed;
             }
 
-            
+            // move astroids
+            for (int i = 0; i < astroids.Count;i++)
+            {
+                int x = astroids[i].X + astroidSpeed[i];
+                astroids[i] = new Rectangle(x, astroids[i].Y, 20, astroidSize);
+            }
+
+            Refresh();            
         }
     }
 }
