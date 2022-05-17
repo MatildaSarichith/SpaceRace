@@ -26,6 +26,9 @@ namespace SpaceRace
         List<int> astroidSpeed = new List<int>();
         int astroidSize = 10;
 
+        int player1Score = 0;
+        int player2Score = 0;
+
         bool wDown = false;
         bool sDown = false;
         bool upDown = false;
@@ -36,6 +39,24 @@ namespace SpaceRace
         public Form1()
         {
             InitializeComponent();
+        }
+
+        public void GameInitialize()
+        {
+            player1ScoreLabel.Visible = true;
+            player2ScoreLabel.Visible = true;
+
+            player1.Location = new Point(250, this.Height - player1.Height);
+            player2.Location = new Point(550, this.Height - player1.Height);
+
+            gameTimer.Enabled = true;
+            gameState = "running";
+
+            player1Score = 0;
+            player2Score = 0;
+
+            astroids.Clear();
+            astroidSpeed.Clear();
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -72,6 +93,18 @@ namespace SpaceRace
                     break;
                 case Keys.S:
                     sDown = true;
+                    break;
+                case Keys.Space: 
+                    if (gameState == "waiting" || gameState == "over")
+                    {
+                        GameInitialize();
+                    }
+                    break;
+                case Keys.Escape:
+                    if (gameState == "waiting" || gameState == "over")
+                    {
+                        Application.Exit();
+                    }
                     break;
             }
         }
@@ -122,6 +155,33 @@ namespace SpaceRace
             {
                 int x = astroids[i].X + astroidSpeed[i];
                 astroids[i] = new Rectangle(x, astroids[i].Y, 20, astroidSize);
+            }
+
+            // when player reaches top +1 point, player restarts at bottom
+            if (player1.Y == 0)
+            {
+                player1.Y = this.Height - player1.Height;
+                player1Score++;
+                player1ScoreLabel.Text = $"{player1Score}";
+            }
+            else if (player2.Y == 0)
+            {
+                player2.Y = this.Height - player2.Height;
+                player1Score++;
+                player2ScoreLabel.Text = $"{player2Score}";
+            }
+
+            // first player to 3 points wins 
+            if (player1Score == 3)
+            {
+                gameTimer.Enabled = false;
+                winLabel.Visible = true;
+                winLabel.Text = "Player 1 Wins!!";
+            }
+            else if (player2Score == 3)
+            {
+                gameTimer.Enabled = false;
+                gameState = "over";
             }
 
             Refresh();            

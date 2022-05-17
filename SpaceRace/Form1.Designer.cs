@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            this.player1ScoreLabel = new System.Windows.Forms.Label();
+            this.player2ScoreLabel = new System.Windows.Forms.Label();
+            this.winLabel = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.subtitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -38,12 +43,66 @@
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.gameTimer_Tick);
             // 
+            // player1ScoreLabel
+            // 
+            this.player1ScoreLabel.AutoSize = true;
+            this.player1ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.player1ScoreLabel.ForeColor = System.Drawing.Color.White;
+            this.player1ScoreLabel.Location = new System.Drawing.Point(282, 400);
+            this.player1ScoreLabel.Name = "player1ScoreLabel";
+            this.player1ScoreLabel.Size = new System.Drawing.Size(16, 17);
+            this.player1ScoreLabel.TabIndex = 0;
+            this.player1ScoreLabel.Text = "0";
+            // 
+            // player2ScoreLabel
+            // 
+            this.player2ScoreLabel.AutoSize = true;
+            this.player2ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.player2ScoreLabel.ForeColor = System.Drawing.Color.White;
+            this.player2ScoreLabel.Location = new System.Drawing.Point(455, 400);
+            this.player2ScoreLabel.Name = "player2ScoreLabel";
+            this.player2ScoreLabel.Size = new System.Drawing.Size(16, 17);
+            this.player2ScoreLabel.TabIndex = 1;
+            this.player2ScoreLabel.Text = "0";
+            // 
+            // winLabel
+            // 
+            this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.winLabel.ForeColor = System.Drawing.Color.White;
+            this.winLabel.Location = new System.Drawing.Point(294, 23);
+            this.winLabel.Name = "winLabel";
+            this.winLabel.Size = new System.Drawing.Size(166, 23);
+            this.winLabel.TabIndex = 2;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.titleLabel.ForeColor = System.Drawing.Color.White;
+            this.titleLabel.Location = new System.Drawing.Point(335, 186);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(100, 23);
+            this.titleLabel.TabIndex = 3;
+            // 
+            // subtitleLabel
+            // 
+            this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.subtitleLabel.ForeColor = System.Drawing.Color.White;
+            this.subtitleLabel.Location = new System.Drawing.Point(335, 244);
+            this.subtitleLabel.Name = "subtitleLabel";
+            this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
+            this.subtitleLabel.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.subtitleLabel);
+            this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.winLabel);
+            this.Controls.Add(this.player2ScoreLabel);
+            this.Controls.Add(this.player1ScoreLabel);
             this.DoubleBuffered = true;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -51,12 +110,18 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Timer gameTimer;
+        private System.Windows.Forms.Label player1ScoreLabel;
+        private System.Windows.Forms.Label player2ScoreLabel;
+        private System.Windows.Forms.Label winLabel;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label subtitleLabel;
     }
 }
 
