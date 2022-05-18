@@ -118,8 +118,17 @@ namespace SpaceRace
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-           if (gameState == "Running")
+            if (gameState == "waiting")
             {
+                titleLabel.Text = "SPACE RACE";
+                subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
+            }
+           else if (gameState == "running")
+            {
+                // update scores
+                player1ScoreLabel.Text = $"{player1Score}";
+                player2ScoreLabel.Text = $"{player2Score}";
+
                 // draw players
                 e.Graphics.FillRectangle(pinkBrush, player1);
                 e.Graphics.FillRectangle(blueBrush, player2);
