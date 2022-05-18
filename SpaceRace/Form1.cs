@@ -224,18 +224,24 @@ namespace SpaceRace
                 player1Score++;
                 player2ScoreLabel.Text = $"{player2Score}";
             }
+ 
+            else if (gameState == "over")
+            {
+                titleLabel.Text = "GAME OVER!";
+                player1ScoreLabel.Text = "";
+                player2ScoreLabel.Text = "";
 
-            // first player to 3 points wins 
-            if (player1Score == 3)
-            {
-                gameTimer.Enabled = false;
-                winLabel.Visible = true;
-                winLabel.Text = "Player 1 Wins!!";
-            }
-            else if (player2Score == 3)
-            {
-                gameTimer.Enabled = false;
-                gameState = "over";
+                // first player to 3 points wins
+                if (player1Score == 3)
+                {
+                    subtitleLabel.Text = "Player 1 is the winner! :)";
+                }
+                else if (player2Score == 3)
+                {
+                    subtitleLabel.Text = "Player 2 is the winner! :)";
+                }
+
+                subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exot Game";
             }
             //SoundPlayer player1 = new SoundPlayer(Properties.Resources.basketballbouncing);
             //player1.Play();

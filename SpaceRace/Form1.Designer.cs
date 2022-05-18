@@ -32,7 +32,6 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.player1ScoreLabel = new System.Windows.Forms.Label();
             this.player2ScoreLabel = new System.Windows.Forms.Label();
-            this.winLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.subtitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -65,15 +64,6 @@
             this.player2ScoreLabel.TabIndex = 1;
             this.player2ScoreLabel.Text = "0";
             // 
-            // winLabel
-            // 
-            this.winLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.winLabel.ForeColor = System.Drawing.Color.White;
-            this.winLabel.Location = new System.Drawing.Point(294, 23);
-            this.winLabel.Name = "winLabel";
-            this.winLabel.Size = new System.Drawing.Size(166, 23);
-            this.winLabel.TabIndex = 2;
-            // 
             // titleLabel
             // 
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
@@ -100,7 +90,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.subtitleLabel);
             this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.winLabel);
             this.Controls.Add(this.player2ScoreLabel);
             this.Controls.Add(this.player1ScoreLabel);
             this.DoubleBuffered = true;
@@ -119,7 +108,6 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label player1ScoreLabel;
         private System.Windows.Forms.Label player2ScoreLabel;
-        private System.Windows.Forms.Label winLabel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label subtitleLabel;
     }
