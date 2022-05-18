@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\astroidcollision.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\end win music.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gameovermusic.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\opening sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\point sound.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\win end music.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

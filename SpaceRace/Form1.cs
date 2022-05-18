@@ -14,9 +14,9 @@ namespace SpaceRace
     {
         Rectangle player1 = new Rectangle(200, 150, 20, 20);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
-        int playerSpeed = 10;
+        int playerSpeed = 6;
 
-        Rectangle player2 = new Rectangle(200, 150, 20, 20);
+        Rectangle player2 = new Rectangle(550, 150, 20, 20);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
 
         List<Rectangle> asteroidsLeft = new List<Rectangle>();
@@ -34,6 +34,9 @@ namespace SpaceRace
         bool upDown = false;
         bool downDown = false;
 
+        Random randGen = new Random();
+        int randValue;
+
         string gameState = "Waiting";
 
         public Form1()
@@ -43,15 +46,19 @@ namespace SpaceRace
 
         public void GameInitialize()
         {
+            titleLabel.Text = "";
+            subtitleLabel.Text = "";
             player1ScoreLabel.Visible = true;
             player2ScoreLabel.Visible = true;
 
+            // players reset to bottom
             player1.Location = new Point(250, this.Height - player1.Height);
             player2.Location = new Point(550, this.Height - player1.Height);
 
             gameTimer.Enabled = true;
             gameState = "running";
 
+            // resets
             player1Score = 0;
             player2Score = 0;
 
@@ -155,6 +162,44 @@ namespace SpaceRace
             {
                 int x = astroids[i].X + astroidSpeed[i];
                 astroids[i] = new Rectangle(x, astroids[i].Y, 20, astroidSize);
+
+                randValue = randGen.Next(0, 101);
+
+                // left astroids
+                if (randValue < 10)
+                {
+                    int y = randGen.Next(15, this.Height - 40);
+                    astroids.Add(new Rectangle(-10, y, astroidSize, astroidSize));
+                    astroidSpeed.Add(6);
+                }
+                // right astroids
+                else if (randValue <20)
+                {
+                    int y = randGen.Next(15, this.Height - 40);
+                    {
+                        astroids.Add(new Rectangle(-10, y, astroidSize, astroidSize));
+                        astroidSpeed.Add(-6);
+                    }
+                }
+
+                
+                for (i = 0; i < astroids.Count;i++)
+                {
+                    if (astroids[i].Y > this.Height - astroidSize)
+                    {
+                        astroids.RemoveAt(i);
+                        astroidSpeed.RemoveAt(i);
+                    }
+                }
+
+                // collision
+                for (i = 0; i < astroids.Count(); i++)
+                {
+                    if (player1.IntersectsWith(astroids[i]))
+                    {
+                        player1.Y = this.Height - player1.Height;
+                    }
+                }
             }
 
             // when player reaches top +1 point, player restarts at bottom
@@ -183,7 +228,8 @@ namespace SpaceRace
                 gameTimer.Enabled = false;
                 gameState = "over";
             }
-
+            //SoundPlayer player1 = new SoundPlayer(Properties.Resources.basketballbouncing);
+            //player1.Play();
             Refresh();            
         }
     }
