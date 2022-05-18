@@ -66,7 +66,7 @@
             // 
             // titleLabel
             // 
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(335, 186);
             this.titleLabel.Name = "titleLabel";
@@ -77,9 +77,9 @@
             // 
             this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.subtitleLabel.ForeColor = System.Drawing.Color.White;
-            this.subtitleLabel.Location = new System.Drawing.Point(335, 244);
+            this.subtitleLabel.Location = new System.Drawing.Point(212, 247);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(100, 23);
+            this.subtitleLabel.Size = new System.Drawing.Size(347, 23);
             this.subtitleLabel.TabIndex = 4;
             // 
             // Form1

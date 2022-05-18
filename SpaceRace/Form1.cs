@@ -12,15 +12,12 @@ namespace SpaceRace
 {
     public partial class Form1 : Form
     {
-        Rectangle player1 = new Rectangle(200, 150, 20, 20);
+        Rectangle player1 = new Rectangle(200, 400, 20, 20);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         int playerSpeed = 6;
 
-        Rectangle player2 = new Rectangle(550, 150, 20, 20);
+        Rectangle player2 = new Rectangle(550, 400, 20, 20);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
-
-        List<Rectangle> asteroidsLeft = new List<Rectangle>();
-        List<Rectangle> asteroidsRight = new List<Rectangle>();
 
         List<Rectangle> astroids = new List<Rectangle>();
         List<int> astroidSpeed = new List<int>();
@@ -37,7 +34,7 @@ namespace SpaceRace
         Random randGen = new Random();
         int randValue;
 
-        string gameState = "Waiting";
+        string gameState = "waiting";
 
         public Form1()
         {
@@ -241,7 +238,7 @@ namespace SpaceRace
                     subtitleLabel.Text = "Player 2 is the winner! :)";
                 }
 
-                subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exot Game";
+                subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exit Game";
             }
             //SoundPlayer player1 = new SoundPlayer(Properties.Resources.basketballbouncing);
             //player1.Play();
