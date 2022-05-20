@@ -34,6 +34,7 @@
             this.player2ScoreLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.subtitleLabel = new System.Windows.Forms.Label();
+            this.playerWinner = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -58,7 +59,7 @@
             this.player2ScoreLabel.AutoSize = true;
             this.player2ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.player2ScoreLabel.ForeColor = System.Drawing.Color.White;
-            this.player2ScoreLabel.Location = new System.Drawing.Point(455, 400);
+            this.player2ScoreLabel.Location = new System.Drawing.Point(521, 400);
             this.player2ScoreLabel.Name = "player2ScoreLabel";
             this.player2ScoreLabel.Size = new System.Drawing.Size(16, 17);
             this.player2ScoreLabel.TabIndex = 1;
@@ -66,6 +67,7 @@
             // 
             // titleLabel
             // 
+            this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
             this.titleLabel.Location = new System.Drawing.Point(335, 186);
@@ -75,6 +77,7 @@
             // 
             // subtitleLabel
             // 
+            this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
             this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.subtitleLabel.ForeColor = System.Drawing.Color.White;
             this.subtitleLabel.Location = new System.Drawing.Point(212, 247);
@@ -82,12 +85,24 @@
             this.subtitleLabel.Size = new System.Drawing.Size(347, 23);
             this.subtitleLabel.TabIndex = 4;
             // 
+            // playerWinner
+            // 
+            this.playerWinner.BackColor = System.Drawing.Color.Transparent;
+            this.playerWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerWinner.ForeColor = System.Drawing.Color.DarkRed;
+            this.playerWinner.Location = new System.Drawing.Point(193, 31);
+            this.playerWinner.Name = "playerWinner";
+            this.playerWinner.Size = new System.Drawing.Size(409, 155);
+            this.playerWinner.TabIndex = 5;
+            this.playerWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.playerWinner);
             this.Controls.Add(this.subtitleLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.player2ScoreLabel);
@@ -110,6 +125,7 @@
         private System.Windows.Forms.Label player2ScoreLabel;
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label subtitleLabel;
+        private System.Windows.Forms.Label playerWinner;
     }
 }
 

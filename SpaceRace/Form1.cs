@@ -12,13 +12,14 @@ namespace SpaceRace
 {
     public partial class Form1 : Form
     {
-        Rectangle player1 = new Rectangle(200, 400, 20, 20);
+        Rectangle player1 = new Rectangle(200, 400, 16, 30);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
         int playerSpeed = 6;
 
-        Rectangle player2 = new Rectangle(550, 400, 20, 20);
+        Rectangle player2 = new Rectangle(500, 400, 16, 30);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
-
+        Rectangle Top = new Rectangle(0, 0, 3000, 10);
+        SolidBrush white = new SolidBrush(Color.White);
         List<Rectangle> astroids = new List<Rectangle>();
         List<int> astroidSpeed = new List<int>();
         int astroidSize = 10;
@@ -119,6 +120,9 @@ namespace SpaceRace
             {
                 titleLabel.Text = "SPACE RACE";
                 subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
+
+                player1ScoreLabel.Visible = false;
+                player2ScoreLabel.Visible = false;
             }
            else if (gameState == "running")
             {
@@ -129,6 +133,7 @@ namespace SpaceRace
                 // draw players
                 e.Graphics.FillRectangle(pinkBrush, player1);
                 e.Graphics.FillRectangle(blueBrush, player2);
+                e.Graphics.FillRectangle(white, Top);
 
                 for (int i = 0; i < astroids.Count; i++)
                 {
@@ -209,16 +214,21 @@ namespace SpaceRace
             }
 
             // when player reaches top +1 point, player restarts at bottom
-            if (player1.Y == 0)
+            if (player1.IntersectsWith(Top))
             {
-                player1.Y = this.Height - player1.Height;
+                //player1.Y = this.Height - player1.Height;
+
+                player1.Y = 400;
+                player1.X = 200;
                 player1Score++;
                 player1ScoreLabel.Text = $"{player1Score}";
             }
-            else if (player2.Y == 0)
+             if (player2.IntersectsWith(Top))
             {
-                player2.Y = this.Height - player2.Height;
-                player1Score++;
+                //player2.Y = this.Height - player2.Height;
+                player2.Y = 400;
+                player2.X = 500;
+                player2Score++;
                 player2ScoreLabel.Text = $"{player2Score}";
             }
  
@@ -229,19 +239,36 @@ namespace SpaceRace
                 player2ScoreLabel.Text = "";
 
                 // first player to 3 points wins
-                if (player1Score == 3)
-                {
-                    subtitleLabel.Text = "Player 1 is the winner! :)";
-                }
-                else if (player2Score == 3)
-                {
-                    subtitleLabel.Text = "Player 2 is the winner! :)";
-                }
+                //if (player1Score == 3)
+                //{
+                //    gameTimer.Enabled = false;
+                //    playerWinner.Visible = true;
+                //    playerWinner.Text = "Player 1 is the winner! :)";
+                //    //subtitleLabel.Text = "Player 1 is the winner! :)";
+                //}
+                //else if (player2Score == 3)
+                //{
+                //    gameTimer.Enabled=false;
+                //    subtitleLabel.Text = "Player 2 is the winner! :)";
+                //}
 
                 subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exit Game";
             }
             //SoundPlayer player1 = new SoundPlayer(Properties.Resources.basketballbouncing);
             //player1.Play();
+            if (player1Score == 3)
+            {
+                gameTimer.Enabled = false;
+                playerWinner.Visible = true;
+                playerWinner.Text = "Player 1 is the winner! :)";
+                //subtitleLabel.Text = "Player 1 is the winner! :)";
+            }
+            else if (player2Score == 3)
+            {
+                gameTimer.Enabled = false;
+                playerWinner.Visible = true;
+                playerWinner.Text = "Player 2 is the winner! :)";
+            }
             Refresh();            
         }
     }
