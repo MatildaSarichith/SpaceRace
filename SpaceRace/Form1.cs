@@ -173,46 +173,44 @@ namespace SpaceRace
             {
                 int x = astroids[i].X + astroidSpeed[i];
                 astroids[i] = new Rectangle(x, astroids[i].Y, 20, astroidSize);
+            }
 
-                randValue = randGen.Next(0, 101);
+            randValue = randGen.Next(0, 101);
 
-                // left astroids
-                if (randValue < 10)
+            // left astroids
+            if (randValue < 10)
+            {
+                int y = randGen.Next(15, this.Height - 40);
+                astroids.Add(new Rectangle(-10, y, astroidSize, astroidSize));
+                astroidSpeed.Add(6);
+            }
+            // right astroids
+            else if (randValue < 20)
+            {
+                int y = randGen.Next(15, this.Height - 40);
                 {
-                    int y = randGen.Next(15, this.Height - 40);
-                    astroids.Add(new Rectangle(-10, y, astroidSize, astroidSize));
-                    astroidSpeed.Add(6);
-                }
-                // right astroids
-                else if (randValue <20)
-                {
-                    int y = randGen.Next(15, this.Height - 40);
-                    {
-                        astroids.Add(new Rectangle(-10, y, astroidSize, astroidSize));
-                        astroidSpeed.Add(-6);
-                    }
-                }
-
-                
-                for (i = 0; i < astroids.Count;i++)
-                {
-                    if (astroids[i].Y > this.Height - astroidSize)
-                    {
-                        astroids.RemoveAt(i);
-                        astroidSpeed.RemoveAt(i);
-                    }
-                }
-
-                // collision
-                for (i = 0; i < astroids.Count(); i++)
-                {
-                    if (player1.IntersectsWith(astroids[i]))
-                    {
-                        player1.Y = this.Height - player1.Height;
-                    }
+                    astroids.Add(new Rectangle(this.Width, y, astroidSize, astroidSize));
+                    astroidSpeed.Add(-6);
                 }
             }
 
+            for (int i = 0; i < astroids.Count; i++)
+            {
+                if (astroids[i].Y > this.Height - astroidSize)
+                {
+                    astroids.RemoveAt(i);
+                    astroidSpeed.RemoveAt(i);
+                }
+            }
+
+            // collision
+            for (int i = 0; i < astroids.Count(); i++)
+            {
+                if (player1.IntersectsWith(astroids[i]))
+                {
+                    player1.Y = this.Height - player1.Height;
+                }
+            }
             // when player reaches top +1 point, player restarts at bottom
             if (player1.IntersectsWith(Top))
             {
