@@ -14,15 +14,17 @@ namespace SpaceRace
     {
         Rectangle player1 = new Rectangle(200, 400, 16, 30);
         SolidBrush pinkBrush = new SolidBrush(Color.Pink);
-        int playerSpeed = 6;
 
         Rectangle player2 = new Rectangle(500, 400, 16, 30);
         SolidBrush blueBrush = new SolidBrush(Color.Blue);
+
+        int playerSpeed = 6;
+
         Rectangle Top = new Rectangle(0, 0, 3000, 10);
-        SolidBrush white = new SolidBrush(Color.White);
+        SolidBrush whiteBrush = new SolidBrush(Color.White);
         List<Rectangle> astroids = new List<Rectangle>();
         List<int> astroidSpeed = new List<int>();
-        int astroidSize = 10;
+        int astroidSize = 6;
 
         int player1Score = 0;
         int player2Score = 0;
@@ -133,12 +135,12 @@ namespace SpaceRace
                 // draw players
                 e.Graphics.FillRectangle(pinkBrush, player1);
                 e.Graphics.FillRectangle(blueBrush, player2);
-                e.Graphics.FillRectangle(white, Top);
+                e.Graphics.FillRectangle(whiteBrush, Top);
 
                 for (int i = 0; i < astroids.Count; i++)
                 {
                     // draw asteroids
-                    e.Graphics.FillRectangle(blueBrush,astroids[i]);
+                    e.Graphics.FillRectangle(whiteBrush,astroids[i]);
                 }
             }
            
@@ -210,6 +212,10 @@ namespace SpaceRace
                 {
                     player1.Y = this.Height - player1.Height;
                 }
+                else if (player2.IntersectsWith(astroids[i]))
+                {
+                    player2.Y = this.Height - player2.Height;
+                }
             }
             // when player reaches top +1 point, player restarts at bottom
             if (player1.IntersectsWith(Top))
@@ -235,24 +241,9 @@ namespace SpaceRace
                 titleLabel.Text = "GAME OVER!";
                 player1ScoreLabel.Text = "";
                 player2ScoreLabel.Text = "";
-
-                // first player to 3 points wins
-                //if (player1Score == 3)
-                //{
-                //    gameTimer.Enabled = false;
-                //    playerWinner.Visible = true;
-                //    playerWinner.Text = "Player 1 is the winner! :)";
-                //    //subtitleLabel.Text = "Player 1 is the winner! :)";
-                //}
-                //else if (player2Score == 3)
-                //{
-                //    gameTimer.Enabled=false;
-                //    subtitleLabel.Text = "Player 2 is the winner! :)";
-                //}
-
                 subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exit Game";
             }
-            //SoundPlayer player1 = new SoundPlayer(Properties.Resources.basketballbouncing);
+            //SoundPlayer player1 = new SoundPlayer(Properties.Resources.insertsoundfilename);
             //player1.Play();
             if (player1Score == 3)
             {

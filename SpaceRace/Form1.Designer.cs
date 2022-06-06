@@ -68,31 +68,31 @@
             // titleLabel
             // 
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Uighur", 30F);
             this.titleLabel.ForeColor = System.Drawing.Color.White;
-            this.titleLabel.Location = new System.Drawing.Point(335, 186);
+            this.titleLabel.Location = new System.Drawing.Point(289, 186);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(100, 23);
+            this.titleLabel.Size = new System.Drawing.Size(222, 68);
             this.titleLabel.TabIndex = 3;
             // 
             // subtitleLabel
             // 
             this.subtitleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.subtitleLabel.Font = new System.Drawing.Font("Microsoft Uighur", 20F);
             this.subtitleLabel.ForeColor = System.Drawing.Color.White;
-            this.subtitleLabel.Location = new System.Drawing.Point(212, 247);
+            this.subtitleLabel.Location = new System.Drawing.Point(210, 245);
             this.subtitleLabel.Name = "subtitleLabel";
-            this.subtitleLabel.Size = new System.Drawing.Size(347, 23);
+            this.subtitleLabel.Size = new System.Drawing.Size(380, 44);
             this.subtitleLabel.TabIndex = 4;
             // 
             // playerWinner
             // 
             this.playerWinner.BackColor = System.Drawing.Color.Transparent;
-            this.playerWinner.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerWinner.ForeColor = System.Drawing.Color.DarkRed;
-            this.playerWinner.Location = new System.Drawing.Point(193, 31);
+            this.playerWinner.Font = new System.Drawing.Font("Microsoft Uighur", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.playerWinner.ForeColor = System.Drawing.Color.Chartreuse;
+            this.playerWinner.Location = new System.Drawing.Point(157, 10);
             this.playerWinner.Name = "playerWinner";
-            this.playerWinner.Size = new System.Drawing.Size(409, 155);
+            this.playerWinner.Size = new System.Drawing.Size(442, 176);
             this.playerWinner.TabIndex = 5;
             this.playerWinner.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
