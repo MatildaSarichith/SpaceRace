@@ -98,5 +98,8 @@
   <ItemGroup>
     <None Include="Resources\win end music.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\402714__theflakesmaster__short-space-theme.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
