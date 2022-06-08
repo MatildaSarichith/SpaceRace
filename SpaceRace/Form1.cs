@@ -43,6 +43,8 @@ namespace SpaceRace
         public Form1()
         {
             InitializeComponent();
+            SoundPlayer player1 = new SoundPlayer(Properties.Resources.spacemusic);
+            player1.Play();
         }
 
         public void GameInitialize()
@@ -121,8 +123,6 @@ namespace SpaceRace
         {
             if (gameState == "waiting")
             {
-                SoundPlayer player1 = new SoundPlayer(Properties.Resources.spacemusic);
-                player1.Play();
                 titleLabel.Text = "SPACE RACE";
                 subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
 
@@ -214,13 +214,15 @@ namespace SpaceRace
                 if (player1.IntersectsWith(astroids[i]))
                 {
                     player1.Y = this.Height - player1.Height;
+                    SoundPlayer player3 = new SoundPlayer(Properties.Resources.asteroidcollision);
+                    player3.Play();
                 }
                 else if (player2.IntersectsWith(astroids[i]))
                 {
                     player2.Y = this.Height - player2.Height;
+                    SoundPlayer player3 = new SoundPlayer(Properties.Resources.asteroidcollision);
+                    player3.Play();
                 }
-                SoundPlayer player3 = new SoundPlayer(Properties.Resources.asteroidcollision);
-                player3.Play();
             }
             // when player reaches top +1 point, player restarts at bottom
             if (player1.IntersectsWith(Top))
@@ -259,7 +261,9 @@ namespace SpaceRace
                 gameTimer.Enabled = false;
                 playerWinner.Visible = true;
                 playerWinner.Text = "Player 1 is the winner! :)";
-                //subtitleLabel.Text = "Player 1 is the winner! :)";
+
+                SoundPlayer player6 = new SoundPlayer(Properties.Resources.win_end_music);
+                player6.Play();
             }
             else if (player2Score == 3)
             {
