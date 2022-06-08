@@ -250,7 +250,6 @@ namespace SpaceRace
                 gameTimer.Enabled = false;
                 playerWinner.Visible = true;
                 playerWinner.Text = "Player 1 is the winner! :)";
-                //subtitleLabel.Text = "Player 1 is the winner! :)";
             }
             else if (player2Score == 3)
             {
