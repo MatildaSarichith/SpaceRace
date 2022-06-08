@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="astroidcollision" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="asteroidcollision" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\astroidcollision.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="end_win_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
@@ -132,6 +132,9 @@
   </data>
   <data name="point_sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\point sound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="spacemusic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\402714__theflakesmaster__short-space-theme.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="win_end_music" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\win end music.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

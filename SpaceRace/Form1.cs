@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SpaceRace
 {
@@ -120,6 +121,8 @@ namespace SpaceRace
         {
             if (gameState == "waiting")
             {
+                SoundPlayer player1 = new SoundPlayer(Properties.Resources.spacemusic);
+                player1.Play();
                 titleLabel.Text = "SPACE RACE";
                 subtitleLabel.Text = "Press Space Bar to Start or Escape to Exit Game";
 
@@ -216,24 +219,29 @@ namespace SpaceRace
                 {
                     player2.Y = this.Height - player2.Height;
                 }
+                SoundPlayer player3 = new SoundPlayer(Properties.Resources.asteroidcollision);
+                player3.Play();
             }
             // when player reaches top +1 point, player restarts at bottom
             if (player1.IntersectsWith(Top))
             {
-                //player1.Y = this.Height - player1.Height;
-
                 player1.Y = 400;
                 player1.X = 200;
+
                 player1Score++;
                 player1ScoreLabel.Text = $"{player1Score}";
+                SoundPlayer player4 = new SoundPlayer(Properties.Resources.point_sound);
+                player4.Play();
             }
              if (player2.IntersectsWith(Top))
             {
-                //player2.Y = this.Height - player2.Height;
                 player2.Y = 400;
                 player2.X = 500;
+
                 player2Score++;
                 player2ScoreLabel.Text = $"{player2Score}";
+                SoundPlayer player4 = new SoundPlayer(Properties.Resources.point_sound);
+                player4.Play();
             }
  
             else if (gameState == "over")
@@ -242,20 +250,25 @@ namespace SpaceRace
                 player1ScoreLabel.Text = "";
                 player2ScoreLabel.Text = "";
                 subtitleLabel.Text += "\nPress Space Bar to Start or Escape to Exit Game";
+
+                SoundPlayer player5 = new SoundPlayer(Properties.Resources.gameovermusic);
+                player5.Play();
             }
-            //SoundPlayer player1 = new SoundPlayer(Properties.Resources.insertsoundfilename);
-            //player1.Play();
             if (player1Score == 3)
             {
                 gameTimer.Enabled = false;
                 playerWinner.Visible = true;
                 playerWinner.Text = "Player 1 is the winner! :)";
+                //subtitleLabel.Text = "Player 1 is the winner! :)";
             }
             else if (player2Score == 3)
             {
                 gameTimer.Enabled = false;
                 playerWinner.Visible = true;
                 playerWinner.Text = "Player 2 is the winner! :)";
+
+                SoundPlayer player6 = new SoundPlayer(Properties.Resources.win_end_music);
+                player6.Play();
             }
             Refresh();            
         }

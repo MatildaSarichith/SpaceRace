@@ -63,9 +63,9 @@ namespace SpaceRace.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
-        internal static System.IO.UnmanagedMemoryStream astroidcollision {
+        internal static System.IO.UnmanagedMemoryStream asteroidcollision {
             get {
-                return ResourceManager.GetStream("astroidcollision", resourceCulture);
+                return ResourceManager.GetStream("asteroidcollision", resourceCulture);
             }
         }
         
@@ -103,6 +103,15 @@ namespace SpaceRace.Properties {
         internal static System.IO.UnmanagedMemoryStream point_sound {
             get {
                 return ResourceManager.GetStream("point_sound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream spacemusic {
+            get {
+                return ResourceManager.GetStream("spacemusic", resourceCulture);
             }
         }
         
